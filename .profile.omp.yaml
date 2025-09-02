@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+final_space: true
+version: 3
+blocks:
+  - alignment: left
+    segments:
+      - foreground: "#ffe9aa"
+        style: "powerline"
+        template: " {{ if .WSL }}WSL at {{ end }}{{ .Icon }} "
+        properties:
+          linux: linux
+          windows: windows
+          rocky: rocky
+          redhat: redhat
+          ubuntu: ubuntu
+        type: os
+      - background: "#ffe9aa"
+        foreground: "#100e23"
+        powerline_symbol: ""
+        style: "powerline"
+        template: ""
+        type: "root"
+      - background: "#ffe9aa"
+        foreground: "#100e23"
+        powerline_symbol: ""
+        style: "powerline"
+        template: " {{ .UserName }} "
+        type: "session"
+      - background: "#91ddff"
+        foreground: "#100e23"
+        powerline_symbol: ""
+        properties:
+            folder_icon: " "
+            folder_separator_icon: " "
+            home_icon: " "
+            style: "agnoster"
+        style: "powerline"
+        template: " {{ .Path }} "
+        type: "path"
+      - background: "#95ffa4"
+        foreground: "#193549"
+        powerline_symbol: ""
+        style: "powerline"
+        template: " {{ .HEAD }} "
+        type: "git"
+      - background: "#906cff"
+        foreground: "#100e23"
+        powerline_symbol: ""
+        style: "powerline"
+        template: "  {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} "
+        type: "python"
+      - background: "#ff8080"
+        foreground: "#ffffff"
+        powerline_symbol: ""
+        style: "powerline"
+        template: " {{ reason .Code }} "
+        type: "status"
+    type: "prompt"
+upgrade:
+    notice: true
+    interval: 168h
+    auto: false
+    source: cdn
